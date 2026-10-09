@@ -1,0 +1,314 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Aaron Robinson Almazan</title>
+<meta name="description" content="Aaron Robinson Almazan: CS student at CSU Chico. Music software and audio ML on edge hardware.">
+<meta name="author" content="Aaron Robinson Almazan">
+<meta property="og:title" content="Aaron Robinson Almazan">
+<meta property="og:description" content="Music software and audio ML on edge hardware. CSU Chico.">
+<meta property="og:type" content="website">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=IBM+Plex+Mono:wght@400;500&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap">
+<style>
+/* Layout: one narrow column, name up top, then work, experience, about, contact. Heavy rules mark sections. */
+:root {
+  --bg: #f3f4f6;
+  --surface: #ffffff;
+  --panel: #eceef3;
+  --ink: #12141a;
+  --muted: #555c6b;
+  --rule: #d5d9e1;
+  --accent: #2337c6;
+  --on-accent: #ffffff;
+  --award: #865a00;
+  --display: "Archivo", "Arial Narrow", "Helvetica Neue", Arial, sans-serif;
+  --text: "Source Serif 4", "Source Serif Pro", Georgia, "Times New Roman", serif;
+  --mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  --gutter: clamp(16px, 4vw, 48px);
+  --maxw: 1040px;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0e1014; --surface: #161920; --panel: #1d2129; --ink: #eceef3; --muted: #9aa1b0;
+    --rule: #2a2f3a; --accent: #8c9dff; --on-accent: #0e1014; --award: #f5c451;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0e1014; --surface: #161920; --panel: #1d2129; --ink: #eceef3; --muted: #9aa1b0;
+  --rule: #2a2f3a; --accent: #8c9dff; --on-accent: #0e1014; --award: #f5c451;
+  color-scheme: dark;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-padding-top: calc(env(safe-area-inset-top, 0px) + 80px); -webkit-text-size-adjust: 100%; }
+@media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
+body {
+  margin: 0;
+  padding-inline: var(--gutter);
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--text);
+  font-size: 1.0625rem;
+  line-height: 1.6;
+}
+h1, h2, h3, p, ul, ol, figure { margin: 0; }
+.wrap { max-width: var(--maxw); margin-inline: auto; }
+a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 0.2em; text-decoration-color: color-mix(in srgb, var(--accent) 60%, transparent); }
+a:hover { color: var(--accent); }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+.label { font-family: var(--mono); font-size: 0.75rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+.muted { color: var(--muted); }
+
+/* nav */
+.nav {
+  position: sticky; top: env(safe-area-inset-top, 0px); z-index: 10;
+  margin-inline: calc(-1 * var(--gutter)); padding: 12px var(--gutter);
+  background: color-mix(in srgb, var(--bg) 90%, transparent);
+  -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--rule);
+}
+.nav .wrap { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 6px 24px; }
+.nav-name { font-family: var(--display); font-stretch: 75%; font-weight: 750; font-size: 1.0625rem; letter-spacing: 0.02em; text-transform: uppercase; text-decoration: none; }
+.nav-links { display: flex; flex-wrap: wrap; gap: 4px 18px; }
+.nav-links a { text-decoration: none; }
+.nav-links a:hover { color: var(--ink); }
+
+/* hero */
+.hero { display: grid; gap: 20px; padding-block: clamp(48px, 8vw, 104px) clamp(48px, 7vw, 88px); }
+.hero h1 {
+  font-family: var(--display); font-stretch: 70%; font-weight: 800;
+  font-size: clamp(3rem, 9vw, 6.5rem); line-height: 0.9; text-transform: uppercase;
+}
+.hero h1 span { display: block; }
+.lead { max-width: 44ch; font-size: clamp(1.125rem, 2vw, 1.3rem); line-height: 1.5; }
+.actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 6px; }
+.btn {
+  display: inline-flex; padding: 10px 16px; border: 1.5px solid var(--ink); color: var(--ink);
+  font-family: var(--mono); font-size: 0.8125rem; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; text-decoration: none;
+  transition: background-color 0.15s, color 0.15s, border-color 0.15s;
+}
+.btn:hover { background: var(--ink); color: var(--bg); }
+.btn-primary { background: var(--accent); border-color: var(--accent); color: var(--on-accent); }
+.btn-primary:hover { background: var(--ink); border-color: var(--ink); color: var(--bg); }
+
+/* sections */
+.section { padding-top: clamp(48px, 7vw, 88px); }
+.section > h2 {
+  margin-bottom: clamp(24px, 3vw, 36px); padding-top: 12px; border-top: 3px solid var(--ink);
+  font-family: var(--display); font-stretch: 75%; font-weight: 750; font-size: clamp(1.75rem, 4vw, 2.5rem); line-height: 1;
+}
+
+/* projects */
+.project { display: grid; gap: 20px; padding-block: clamp(28px, 4vw, 44px); border-top: 1px solid var(--rule); }
+.project:first-of-type { padding-top: 0; border-top: 0; }
+.project h3 { font-family: var(--display); font-stretch: 75%; font-weight: 750; font-size: clamp(1.5rem, 3vw, 1.9rem); line-height: 1.05; }
+.p-text { display: grid; gap: 10px; max-width: 64ch; }
+.p-title { display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 14px; }
+.award { padding: 3px 8px; border: 1px solid currentColor; font-family: var(--mono); font-size: 0.75rem; font-weight: 500; color: var(--award); }
+.stack { font-family: var(--mono); font-size: 0.75rem; color: var(--muted); }
+.shot a { display: block; }
+.shot img { display: block; width: 100%; max-width: 100%; height: auto; border: 1px solid var(--rule); background: var(--surface); }
+.shot a:hover img { border-color: var(--accent); }
+.project-side { grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr); gap: clamp(20px, 4vw, 48px); align-items: center; }
+.phones { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(10px, 2vw, 18px); padding: clamp(14px, 3vw, 24px); background: var(--panel); border: 1px solid var(--rule); }
+.phones img { border-radius: 12px; }
+
+/* lists */
+.rows { padding: 0; list-style: none; border-top: 1px solid var(--rule); }
+.rows li {
+  display: grid; grid-template-columns: 10.5rem minmax(0, 1fr); gap: 2px 24px;
+  padding-block: 14px; border-bottom: 1px solid var(--rule);
+}
+.rows .when { padding-top: 3px; font-family: var(--mono); font-size: 0.8125rem; color: var(--muted); font-variant-numeric: tabular-nums; }
+.rows strong { font-weight: 600; }
+
+.cols { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 36px clamp(32px, 5vw, 64px); margin-top: clamp(28px, 4vw, 40px); }
+.cols > div { display: grid; gap: 12px; align-content: start; min-width: 0; }
+.cols h3 { padding-bottom: 8px; border-bottom: 1.5px solid var(--ink); color: var(--ink); }
+.plain { padding: 0; list-style: none; display: grid; gap: 6px; font-size: 0.9375rem; }
+.plain small { font-family: var(--mono); font-size: 0.6875rem; color: var(--muted); margin-left: 6px; }
+.about-lede { max-width: 60ch; }
+
+/* contact */
+.c-list { border-top: 1px solid var(--rule); }
+.c-row { display: grid; grid-template-columns: 6rem minmax(0, 1fr) auto; gap: 4px 14px; align-items: center; padding-block: 12px; border-bottom: 1px solid var(--rule); }
+.c-row .val { overflow-wrap: anywhere; }
+.copy {
+  padding: 5px 10px; border: 1px solid var(--rule); background: var(--surface); color: var(--ink); cursor: pointer;
+  font-family: var(--mono); font-size: 0.6875rem; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase;
+}
+.copy:hover { border-color: var(--ink); }
+.foot { padding-block: clamp(48px, 7vw, 80px) 40px; }
+
+@media (max-width: 760px) {
+  .project-side, .cols { grid-template-columns: minmax(0, 1fr); }
+  .rows li { grid-template-columns: minmax(0, 1fr); }
+  .c-row { grid-template-columns: minmax(0, 1fr) auto; }
+  .c-row .label { grid-column: 1 / -1; }
+}
+@media (prefers-reduced-motion: reduce) { .btn { transition: none; } }
+</style>
+</head>
+<body>
+
+
+<header class="nav">
+  <div class="wrap">
+    <a class="nav-name" href="#top">Aaron Robinson Almazan</a>
+    <nav class="nav-links label" aria-label="Sections">
+      <a href="#projects">Projects</a>
+      <a href="#experience">Experience</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top" class="wrap">
+
+  <section class="hero" aria-labelledby="name">
+    <p class="label">Computer Science · CSU Chico</p>
+    <h1 id="name"><span>Aaron Robinson</span> <span>Almazan</span></h1>
+    <p class="lead">CS student and jazz musician. I build music software and work on audio ML for edge hardware.</p>
+    <div class="actions">
+      <a class="btn btn-primary" href="https://github.com/aaronrobinsona" target="_blank" rel="noopener">GitHub</a>
+      <a class="btn" href="https://www.linkedin.com/in/aaron-robinson-almazan/" target="_blank" rel="noopener">LinkedIn</a>
+      <a class="btn" href="#contact">Contact</a>
+      <!-- Put resume.pdf next to this file, then uncomment:
+      <a class="btn" href="resume.pdf" target="_blank" rel="noopener">Résumé</a> -->
+    </div>
+  </section>
+
+  <section class="section" id="projects" aria-labelledby="projects-title">
+    <h2 id="projects-title">Projects</h2>
+
+    <article class="project">
+      <figure class="shot">
+        <a href="images/grade-your-melody.png" target="_blank" rel="noopener">
+          <img src="images/grade-your-melody.png" width="1919" height="1100" alt="Grade Your Melody in Free Staff mode: a treble staff with a two-measure melody, accidental and note-length buttons, play and stop controls, and a tempo of 100 BPM.">
+        </a>
+      </figure>
+      <div class="p-text">
+        <div class="p-title">
+          <h3>Grade Your Melody</h3>
+          <span class="award">Most Innovative · Chico State Hackathon 2025</span>
+        </div>
+        <p>Music education app that grades a student's melody against music-theory rules. Started as a Django web app at a hackathon, then rebuilt as a C++/Qt desktop app with a course team.</p>
+        <p class="stack">C++ / Qt / QML / Python / Django / Docker</p>
+      </div>
+    </article>
+
+    <article class="project project-side">
+      <figure class="shot phones">
+        <a href="images/learn-my-fx-grid.png" target="_blank" rel="noopener"><img src="images/learn-my-fx-grid.png" width="359" height="790" loading="lazy" alt="Learn My FX drum track on a 16-step grid, with Reverb, Delay and Distort buttons."></a>
+        <a href="images/learn-my-fx-distortion.png" target="_blank" rel="noopener"><img src="images/learn-my-fx-distortion.png" width="356" height="790" loading="lazy" alt="Learn My FX distortion panel with Dry/Wet and Drive sliders."></a>
+      </figure>
+      <div class="p-text">
+        <h3>Learn My FX</h3>
+        <p>Step sequencer for iOS and Android with piano, drums and bass, plus reverb, delay and distortion you tweak while it plays. Projects save to the cloud with Google Sign-In.</p>
+        <p class="stack">Flutter / Dart / Firebase</p>
+      </div>
+    </article>
+  </section>
+
+  <section class="section" id="experience" aria-labelledby="xp-title">
+    <h2 id="xp-title">Experience</h2>
+    <ul class="rows">
+      <li><span class="when">Jun 2026 – present</span><div><strong>Undergraduate Research Assistant</strong>, Elephant Listening Project<br><span class="muted">Audio ML on edge hardware</span></div></li>
+      <li><span class="when">Jan 2026 – present</span><div><strong>Grader and Lab Assistant</strong>, Algorithms &amp; Data Structures</div></li>
+      <li><span class="when">Jan 2025 – present</span><div><strong>Math and Lab Tutor</strong>, Discrete Mathematics</div></li>
+    </ul>
+  </section>
+
+  <section class="section" id="about" aria-labelledby="about-title">
+    <h2 id="about-title">About</h2>
+    <p class="about-lede">I studied jazz before computer science, and most of what I build still involves sound. I'm in CSU Chico's blended B.S./M.S. program in Computer Science.</p>
+
+    <div class="cols">
+      <div>
+        <h3 class="label">Education</h3>
+        <ul class="plain">
+          <li><strong>B.S./M.S. Computer Science</strong>, CSU Chico <small>May 2028</small></li>
+          <li class="muted">Math minor · Cybersecurity concentration · GPA 3.65</li>
+          <li><strong>B.M. Jazz Studies</strong>, Cal State LA <small>2023</small></li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="label">Awards</h3>
+        <ul class="plain">
+          <li>Best Use of Data, NorCal Datafest <small>2026</small></li>
+          <li>Most Innovative, Chico State Hackathon <small>2025</small></li>
+          <li>Dean's List <small>Spr 2026</small></li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="label">Leadership</h3>
+        <ul class="plain">
+          <li>Treasurer, Upsilon Pi Epsilon</li>
+          <li>Outreach Officer, ACM</li>
+          <li>Secretary, CATNET</li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="label">Skills</h3>
+        <ul class="plain">
+          <li>Python, C/C++, Java, JavaScript, Dart, SQL</li>
+          <li>TensorFlow, PyTorch, NumPy, scikit-learn</li>
+          <li>Linux, Docker, Git, Qt, Flutter, Firebase</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="contact" aria-labelledby="contact-title">
+    <h2 id="contact-title">Contact</h2>
+    <div class="c-list">
+      <div class="c-row">
+        <span class="label">Email</span>
+        <a class="val" id="email" href="mailto:aaronrobinsona@gmail.com">aaronrobinsona@gmail.com</a>
+        <button class="copy" type="button" id="copy-email" data-copy="aaronrobinsona@gmail.com" data-target="email">Copy</button>
+      </div>
+      <div class="c-row">
+        <span class="label">GitHub</span>
+        <a class="val" href="https://github.com/aaronrobinsona" target="_blank" rel="noopener">github.com/aaronrobinsona</a>
+        <span></span>
+      </div>
+      <div class="c-row">
+        <span class="label">LinkedIn</span>
+        <a class="val" href="https://www.linkedin.com/in/aaron-robinson-almazan/" target="_blank" rel="noopener">linkedin.com/in/aaron-robinson-almazan</a>
+        <span></span>
+      </div>
+    </div>
+  </section>
+
+  <footer class="foot label">© 2026 Aaron Robinson Almazan</footer>
+</main>
+
+<script>
+(function () {
+  var btn = document.getElementById('copy-email');
+  if (!btn) return;
+  var timer = 0;
+  function say(t) { btn.textContent = t; clearTimeout(timer); timer = setTimeout(function () { btn.textContent = 'Copy'; }, 1800); }
+  function selectIt() {
+    var el = document.getElementById(btn.getAttribute('data-target'));
+    if (!el || !window.getSelection) return;
+    var r = document.createRange(); r.selectNodeContents(el);
+    var s = window.getSelection(); s.removeAllRanges(); s.addRange(r);
+    say('Selected');
+  }
+  btn.addEventListener('click', function () {
+    var text = btn.getAttribute('data-copy');
+    if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(text).then(function () { say('Copied'); }, selectIt);
+    else selectIt();
+  });
+})();
+</script>
+
+</body>
+</html>
